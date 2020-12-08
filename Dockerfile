@@ -15,4 +15,4 @@ EXPOSE 5000
 
 USER sasquatch
 
-CMD python ./index.py
+CMD ["python", "./index.py"]
