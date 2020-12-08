@@ -1,0 +1,26 @@
+name: Linter
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ $default-branch ]
+
+jobs:
+  # Set the job key. The key is displayed as the job name
+  # when a job name is not provided
+  lint:
+    # Name the Job
+    name: Lint Dockerfile
+    # Set the type of machine to run on
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Hadolint
+      uses: brpaz/hadolint-action@v1.2.1
+      with:
+        dockerfile: Dockerfile
